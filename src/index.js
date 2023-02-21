@@ -1,5 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from './component/App';
+
+ReactDOM.render(<App />, document.elementById("root"));
+
 
 
 //1. Create a new React app.
