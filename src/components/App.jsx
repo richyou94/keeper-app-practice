@@ -25,12 +25,13 @@ function App() {
     e.preventDefault();
     setNotes((prev) => {
       return [...prev, note];
-    })
+    });
+
     setNote((prev) => {
       return {
         title: "",
         content: "",
-      }
+      };
     });
   };
 
@@ -38,7 +39,10 @@ function App() {
     <div>
       <Header />
       <CreateArea addNote={addNote} handleChange={handleChange} note={note} />
-      <Note key={1} title="Note title" cotent="Note content" />
+      {notes.map((item, index) => {
+        return <Note key={index} title={item.title} content={item.content} />
+      })}
+      
       <Footer />
     </div>
   );
