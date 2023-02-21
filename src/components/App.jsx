@@ -35,14 +35,29 @@ function App() {
     });
   };
 
+  const deleteNote = (id) => {
+    
+    setNotes((prev) => {
+      return prev.filter((element, index) => {
+        return index !== id;
+      });
+    });
+  };
   return (
     <div>
       <Header />
       <CreateArea addNote={addNote} handleChange={handleChange} note={note} />
       {notes.map((item, index) => {
-        return <Note key={index} title={item.title} content={item.content} />
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={item.title}
+            content={item.content}
+            removeNote={deleteNote}
+          />
+        );
       })}
-      
       <Footer />
     </div>
   );
